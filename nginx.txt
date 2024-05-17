@@ -68,6 +68,16 @@ systemctl restart nginx
 
 
 
+----------------------------------++-
+if nginx not working 
+
+Sudo apt purge nginx*
+Sudo apt-get autoclean && sudo apt-get autoclean 
+
+Sudo apt-get install nginx*
+
+Sudo dpkg --configure -a
+
 
 
 
