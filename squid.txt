@@ -29,6 +29,13 @@ ACL = access control list
 
         acl banned src 192.168.144.135
         # http_access deny banned
+
+========================================================
+
+# squid -k check && squid -k parse && squid -k reconfigure
+
+========================================================
+
 ========================================================
 
 # INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
@@ -105,7 +112,7 @@ http_access deny acts_users
     # squid -k reconfigure
 
 
-# squid -k check && squid -k parse && squid -k reconfigure
+
 
     > first time when cache configuration add in /etc/squid/squid.conf 
     # systemctl resart squid
