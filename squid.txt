@@ -14,7 +14,7 @@ SQUID :
 # systemctl enable squid
 
 
-firewall-cmd --zone=public --add-service=public --permanent
+firewall-cmd --zone=public --add-service=squid --permanent
 firewall-cmd --reload
 
 
