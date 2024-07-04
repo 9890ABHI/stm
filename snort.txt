@@ -10,7 +10,7 @@ home net network of the ip
 
 uncomment include $RULE_PATH local.rule
 
-cd /etc/snort/rules/loacl.rules
+vim /etc/snort/rules/local.rules
 
 alert ip any any -> any any (msg:"ip alert"; sid:100001; rev:1; )
 
