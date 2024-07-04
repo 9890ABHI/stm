@@ -115,7 +115,7 @@ http_access deny acts_users
 
 
     > first time when cache configuration add in /etc/squid/squid.conf 
-    # systemctl resart squid
+    # systemctl restart squid
 
 
     > check log in real time 
