@@ -1,31 +1,42 @@
-CentOS: 
-`Add two interfaces in VM one NAT and another custom Host-Only
+CentOS - 7 : 
+Add two interfaces in VM one NAT and another custom Host-Only
+for clien add interface NAT
+
 ens33 : 192.168.206.133/24
 ens37 : 10.0.0.100/24 
-
 
 stop firewall on both vm
 # systemctl stop firewall 
 
 
+git clone https://github.com/angristan/openvpn-install.git
+
+cd openvpn-install
 a) Create a internal web server:
 # yum install httpd -y
 
 b) Open config:
 
 # vim /etc/httpd/conf/httpd.conf
-
-Listen 10.0.0.100:80
+replace 
+Listen 80 to 
+Listen hostonly_ip:80
 
 :wq
 
 # systemctl restart httpd
+# systemctl status httpd
 
-NOTE: Now web server in running on 10.0.0.100:80 only.
+NOTE: Now web server in running on hostonly_ip:80 only.
+
+
+on browser
+check output of host-only_ip 
+
 
 _________________
-https://github.com/angristan/openvpn-install
 ```
+
 # wget https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-install.sh
 # bash openvpn-install.sh
 
@@ -37,11 +48,11 @@ You can leave the default options and just press enter if you are ok with them.
 
 I need to know the IPv4 address of the network interface you want OpenVPN listening to.
 Unless your server is behind NAT, it should be your public IPv4 address.
-IP address: 10.0.0.100
+IP address: host-only ip
 
 It seems this server is behind NAT. What is its public IPv4 address or hostname?
 We need it for the clients to connect to the server.
-Public IPv4 address or hostname: 192.168.206.133
+Public IPv4 address or hostname: NAT_ip
 
 Checking for IPv6 connectivity...
 
@@ -113,16 +124,34 @@ ________________________________________________________________________________
 
 On Server:
 `
-# scp -r /root/kazama.ovpn 192.168.206.134:/root/
+# scp -r /root/kazama.ovpn  client@NAT_ip:/root/
 root@192.168.206.134's password: 
 kazama.ovpn
 
+
+
+=========================================================
+
 On Client:
 `
-# apt install openvpn -y
+# cd /etc/yum.repos.d/ &&  sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* && sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-* && systemctl stop firewalld && systemctl disable firewalld $$ sentenforce 0
+# yum install epel-releas
+# yum install openvpn -y
 
 # openvpn --config ~/kazama.ovpn
 
+
+
+on browser check the hostonly_ip of server
+
+
+
+
+
+
+
+
+=============================================================
 On Windows
 ``
 
