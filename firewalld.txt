@@ -51,7 +51,7 @@ Basic firewall commands
 		# firewall-cmd --new-zone=hpcsa --permanent 
 		# firewall-cmd --reload
 
-		# firewall-cmd --set-default-zone=hpcsa --permanent
+		# firewall-cmd --set-default-zone=hpcsa
 		# firewall-cmd --reload
 		
 		# firewall-cmd --add-interface=ens33 --permanent
@@ -293,123 +293,6 @@ How to Install tcpdump in Linux
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-TASK:
-The Basic HTTP GET response interaction:
-````````````````````````````````````````
-Steps:
-``````
-1. Start up your web browser
-2. Start up the Wireshark packet sniffer
-3. Enter “http” (just the letters, not the quotation marks) in the display-filter-specification window
-4. only captured HTTP messages will be displayed later in the packet-listing window, We’re only interested in the HTTP protocol here, and don’t want to see the clutter of all captured packets.
-5. Wait a bit more than one minute (we’ll see why shortly), and then begin Wireshark packet capture.
-6. Enter the following to your browser:
-	http://example.com/
-Your browser should display the very simple HTML page.
-7. Stop Wireshark packet capture.
-8. Now trace the HTTP packets for above domain and answer following:
-	a. Is your browser running HTTP version 1.0 or 1.1? What version of HTTP is the server running?
-	b. What is the IP address of your computer? Of the example.com server?
-	c. What is the status code returned from the server to your browser?
-
-
-
-
-
-TASK
-
-
-	 Can you plz complete the following?
- Analyze PCAP
-
-Analyze Sample PCAP
-Report back the following samples (HTTP, DNS, FTP,  SMTP)
-
-SMTP:
-`````
-Who is the client?                          gurpartap@patriots.in       10.10.1.4
-Who is the server? 							mail.pariots.in             74.53.140.153
-What is the subject of the mail? 			SMTP
-Who are the recipients?                     raj_deol2002@yahoo.co.in
-What is the body of the email?
-what is username & password ?               gurpartap@patriots.in       punjab@123
-
-FTP:
-Who is the client?					81.131.67.131
-Who is the server?					210.146.64.4
-What is the ftp directory?
-Is any data getting exchanged?
-
-
-DNS:
-Who is the client?                  192.168.170.8
-Who is the server?					192.168.170.20
-What is the dns request?			www.netbsd.org  151.101.65.6
-
-
-HTTP:
-Who is the client?
-Who is the server?
-What is the web server version/type?
-What page is getting requested?
-
-
-
-
-
-
-TASK:
-``````
-1. Exploring Network Traces:
-````````````````````````````
-
-NOTE: Security analysts and attackers both frequently study network traffic to search for vulnerabilities and to characterize network behavior. 
-
-In this task, you will search for specific vulnerable behaviors and extract relevant details using the Wireshark network analyzer.
-
-Analyse "data-task2.pcap" and Provide concise answers to the following questions. Each response should require at most 2â€“3 sentences. 
-
-Q1. Multiple hosts sent packets on the local network. What are their MAC and IP addresses? [easy]
-
-Q2. What type of network does this appear to be (e.g., a large corporation, an ISP backbone, etc.)? Point to evidence from the trace that supports this. [intermediate]
-
-Q3. One of the clients connects to an FTP server during the trace: [intermediate]
-
-	a. What is the DNS hostname of the server it connects to?
-	b. Is the connection using Active or Passive FTP?
-	c. Based on the packet capture, whatâ€™s one major vulnerability of the FTP protocol?
-	d. Name at least two network protocols that can be used in place of FTP to provide secure file transfer.
-
-Q4. The trace shows that at least one of the clients makes HTTPS connections to sites other than Facebook. Pick one of these connections and answer the following: [intermediate]
-
-	a. What is the domain name of the site the client is connecting to?
-	b. Is there any way the HTTPS server can protect against the leak of information in (a)?
-	
-Q5. One of the clients makes a number of requests to Facebook: [easy]
-
-	a. Even though logins are processed over HTTPS, what is insecure about the way the browser is authenticated to Facebook?
-	b. How would this let an attacker impersonate the user on Facebook?
-	c. How can users protect themselves against this type of attack?
-	d. What did the user do while on the Facebook site?
 
 
 
