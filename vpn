@@ -3,6 +3,11 @@ CentOS:
 ens33 : 192.168.206.133/24
 ens37 : 10.0.0.100/24 
 
+
+stop firewall on both vm
+# systemctl stop firewall 
+
+
 a) Create a internal web server:
 # yum install httpd -y
 
