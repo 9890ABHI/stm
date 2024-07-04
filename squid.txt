@@ -1,4 +1,4 @@
-
+use only centos with gui for this 
 
 SQUID : 
     caching and forwarding HTTP web proxy.
