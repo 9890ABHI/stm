@@ -104,6 +104,9 @@ http_access deny acts_users
     # squid -k parse 
     # squid -k reconfigure
 
+
+# squid -k check && squid -k parse && squid -k reconfigure
+
     > first time when cache configuration add in /etc/squid/squid.conf 
     # systemctl resart squid
 
