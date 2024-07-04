@@ -27,3 +27,4 @@ allow ip any any -> 192.168.144.1-100 any (msg:"ip allow" ; sid :100003 ; rev:1;
 
 # console
 # snort -A console -q -i ens33 -c /etc/snort/snort.conf
+=======================================================================================
