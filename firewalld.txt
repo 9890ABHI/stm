@@ -1,3 +1,15 @@
+questions 1
+/etc/sysctl.conf
+
+net.ipv4.ip_forward = 1
+
+
+
+sysctl -p
+
+
+
+
 # Replace eth0 with your external network interface
 firewall-cmd --permanent --zone=public --add-masquerade
 
