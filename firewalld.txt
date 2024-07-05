@@ -1,3 +1,16 @@
+# Replace eth0 with your external network interface
+firewall-cmd --permanent --zone=public --add-masquerade
+
+# Reload firewalld to apply the changes
+firewall-cmd --reload
+
+
+
+_-----------------------
+
+
+
+
 Basic firewall commands
 	current State 
 		# firewall-cmd --state
